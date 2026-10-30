@@ -1,0 +1,16 @@
+{
+  "name": "placement-prep-learn",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Interview-prep learning site generated from the Placement_preparation repository",
+  "scripts": {
+    "fetch": "node tools/fetch-repo.js build/repo",
+    "extract": "node tools/extract.js build/repo build/text",
+    "bank": "node tools/build-bank.js build/text data/bank.js",
+    "build:content": "npm run fetch && npm run extract && npm run bank",
+    "serve": "node serve.js 4173"
+  },
+  "devDependencies": {
+    "pdf-parse": "1.1.1"
+  }
+}
