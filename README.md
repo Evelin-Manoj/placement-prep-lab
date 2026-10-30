@@ -82,14 +82,28 @@ and by hand for browser-only and error cases.
 
 All progress is stored in `localStorage` under the key `ppl:v1`.
 
-## Publish on GitHub Pages
+## Live site
 
-1. Create a public repository (for example `placement-prep-lab`).
-2. Upload everything except `node_modules/` and `build/` (both are ignored by `.gitignore`).
-   Without Git on the machine, the GitHub CLI can upload files through the Contents API:
-   `gh api --method PUT repos/<owner>/<repo>/contents/<path> --input body.json`
-   where `body.json` holds `{"message": "...", "content": "<base64 of the file>"}`.
-3. Settings → Pages → Source: *Deploy from a branch* → `main` / root.
+Published at <https://evelin-manoj.github.io/placement-prep-lab/> from the
+[Evelin-Manoj/placement-prep-lab](https://github.com/Evelin-Manoj/placement-prep-lab) repository
+(GitHub Pages, `main` branch, root).
+
+## Publish or update on GitHub Pages
+
+1. Create a public repository once: `gh repo create placement-prep-lab --public`.
+2. Upload everything except `node_modules/` and `build/`:
+
+   ```powershell
+   powershell -File tools/upload-site.ps1 -Source . -Repo Evelin-Manoj/placement-prep-lab
+   ```
+
+   The script uses the GitHub CLI's Contents API (no Git needed), skips files whose Git blob SHA
+   already matches, and retries through proxy hiccups. Note: a corporate proxy may reject API URLs
+   that end in `.ps1`; if the script's own file fails to upload, commit it through the Git Data API
+   (blob → tree → commit), where paths appear only in the request body.
+3. Settings → Pages → Source: *Deploy from a branch* → `main` / root (or
+   `gh api --method POST repos/<owner>/<repo>/pages --input pages.json` with
+   `{"source":{"branch":"main","path":"/"}}`).
 
 Because the site uses hash routing and relative paths, it works from a project page URL such as
 `https://<owner>.github.io/<repo>/` without configuration.
