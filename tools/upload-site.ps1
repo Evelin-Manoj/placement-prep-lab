@@ -51,6 +51,10 @@ foreach ($f in $files) {
 
   $put = Invoke-Gh @("api", "--method", "PUT", "repos/$Repo/contents/$apiPath", "--input", $tmp, "--jq", ".commit.sha")
   if ($put[0]) { Write-Output "OK   $rel  ($($bytes.Length) bytes)  $($put[1])"; $uploaded++ }
+  elseif ($put[1] -match "invalid character '<'") {
+    # Some corporate proxies answer API URLs ending in .ps1 (and similar) with an HTML block page.
+    Write-Output "SKIP $rel (proxy blocked this URL; commit it through the Git Data API instead)"; $skipped++
+  }
   else { Write-Output "FAIL $rel  $($put[1])"; exit 1 }
 }
 Remove-Item $tmp -Force -ErrorAction SilentlyContinue
