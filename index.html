@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Placement Prep Lab — interview course built from the Placement_preparation repo</title>
+  <meta name="description" content="Learn and practise every topic in Evelin Manoj's Placement_preparation repository: curriculum notes, quizzes, flashcards with spaced repetition, coding drills and a timed mock interview." />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%237c5cff'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' font-weight='700' fill='white' text-anchor='middle'%3EPL%3C/text%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#/"><span class="brand-mark">PL</span><span>Placement Prep Lab</span></a>
+      <nav class="nav" id="nav" aria-label="Primary">
+        <a href="#/" data-route="home">Curriculum</a>
+        <a href="#/practice" data-route="practice">Practice</a>
+        <a href="#/mock" data-route="mock">Mock interview</a>
+        <a href="#/progress" data-route="progress">Progress</a>
+        <a href="#/bank" data-route="bank">Question bank</a>
+      </nav>
+      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle colour theme">☾</button>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap" id="app" aria-live="polite">
+      <div class="empty">Loading…</div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap row between">
+      <span>Content generated from <a class="source-link" href="https://github.com/Evelin-Manoj/Placement_preparation" target="_blank" rel="noopener">Evelin-Manoj/Placement_preparation</a>. Progress is stored only in this browser.</span>
+      <span id="footerMeta" class="tiny"></span>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <!-- Generated question bank (tools/build-bank.js) -->
+  <script src="data/bank.js"></script>
+  <!-- Curriculum skeleton and hand-written study content -->
+  <script src="data/curriculum.js"></script>
+  <script src="data/topics/cpp.js"></script>
+  <script src="data/topics/python.js"></script>
+  <script src="data/topics/db.js"></script>
+  <script src="data/topics/html.js"></script>
+  <script src="data/topics/js-core.js"></script>
+  <script src="data/topics/js-es6.js"></script>
+  <script src="data/topics/js-async.js"></script>
+  <script src="data/topics/js-browser.js"></script>
+  <script src="data/topics/js-tooling.js"></script>
+  <script src="data/topics/js-output.js"></script>
+  <script src="data/topics/react-fund.js"></script>
+  <script src="data/topics/react-adv.js"></script>
+  <script src="data/topics/react-redux.js"></script>
+  <script src="data/topics/react-eco.js"></script>
+  <script src="data/topics/node.js"></script>
+  <script src="data/topics/php.js"></script>
+  <!-- Application -->
+  <script src="assets/app.js"></script>
+</body>
+</html>
